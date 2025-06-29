@@ -16,6 +16,15 @@ connectCloudinary();
 app.use(express.json());
 app.use(cors());
 
+//cors
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://tendify-yulr.vercel.app"], // Add frontend URLs here
+    credentials: true,
+  })
+);
+
+
 // INFO: API endpoints
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
